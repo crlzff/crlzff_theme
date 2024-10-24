@@ -13,6 +13,12 @@
   --font-family-mono: ui-monospace, "Menlo", "Monaco", "Cascadia Mono", "Segoe UI Mono",
                 "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
                 "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+
+  /* Dark theme colors */
+  --dark-background: #171613;
+  --dark-text: #FBF0DF;
+  --dark-midgray: #2a2a2a;
+  --dark-gray: #b8b8b8;
 }
 @media (min-width: 576px) {
   :root {
@@ -598,3 +604,59 @@ ul.shelf .title a:after:hover {
     padding-left: calc(var(--spacing) / 2);
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --lightgray: var(--dark-background);
+    --black: var(--dark-text);
+    --midgray: var(--dark-midgray);
+    --gray: var(--dark-gray);
+  }
+
+  body {
+    background-color: var(--dark-background);
+    color: var(--dark-text);
+  }
+
+  a {
+    color: var(--dark-text);
+  }
+
+  a:hover::before,
+  a:hover::after,
+  nav li.active a::before,
+  nav li.active a::after {
+    color: var(--pink);
+  }
+
+  blockquote {
+    border-left-color: var(--pink);
+  }
+
+  kbd {
+    background: var(--dark-text);
+    color: var(--dark-background);
+  }
+
+  pre {
+    background-color: var(--dark-midgray);
+    color: var(--dark-text);
+  }
+
+  :not(pre) > code {
+    background: var(--dark-midgray);
+    color: var(--pink);
+  }
+
+  hr::before,
+  body > footer::before {
+    color: var(--dark-gray);
+  }
+
+  hr.fancy::after,
+  body > footer::after {
+    background: var(--dark-background);
+    color: var(--dark-gray);
+  }
+}
+
